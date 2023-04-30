@@ -18,9 +18,9 @@
 </head>
 
 <body>
-  <header class="heading">
+<?php include "nv.php" ?>
+<!--   <header class="heading">
 
-    <!-- Navbar -->
     <div class="container">
 
       <nav class="navbar navbar-expand-lg ">
@@ -73,7 +73,7 @@
           </div>
       </nav>
     </div>
-  </header>
+  </header> -->
 
   <section class="p-3">
     <div class="box" data-tilt data-tilt-scale="1.1">

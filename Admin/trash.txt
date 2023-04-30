@@ -1,0 +1,41 @@
+        <?php
+    
+
+            if(isset($_POST['submit']))
+            {
+                $q=mysqli_query($conn,"SELECT reg_no,username,email FROM `student` where username like '%$_POST[search]%' ");
+    
+                if(mysqli_num_rows($q)==0)
+                {
+                    echo "Sorry! No Student found. Try searching again.";
+
+                    ?>
+                        <script>
+                            $(document).ready(function() {
+                                $('#result_table').remove();
+                            });
+                        </script>
+                    <?php
+                }
+                else
+                {
+            echo "<table id='result_table' class='table table-bordered table-hover' >";
+                echo "<tr style='background-color: #6db6b9e6;'>";
+                    //Table header
+                    echo "<th>"; echo "Reg.No.";	echo "</th>";
+                    echo "<th>"; echo "Student-Name";  echo "</th>";
+                    echo "<th>"; echo "Email";  echo "</th>";
+                    echo "</tr>";	
+    
+                while($row=mysqli_fetch_assoc($q))
+                {
+                    echo "<tr>";
+                    echo "<td>"; echo $row['reg_no']; echo "</td>";
+                    echo "<td>"; echo $row['username']; echo "</td>";
+                    echo "<td>"; echo $row['email']; echo "</td>";
+                    echo "</tr>";
+                }
+            echo "</table>";
+                }
+            }
+    ?>

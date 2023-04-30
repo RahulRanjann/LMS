@@ -6,7 +6,7 @@
 if(isset($_POST['sign_upsubmit']))
 {
   $count=0;
-  $sql="SELECT username from `student`";
+  $sql="SELECT username from `admin`";
   $res=mysqli_query($conn,$sql);
 
   while($row=mysqli_fetch_assoc($res))
@@ -18,7 +18,7 @@ if(isset($_POST['sign_upsubmit']))
   }
   if($count==0)
   {
-    mysqli_query($conn,"INSERT INTO student VALUES ('$_POST[username]', '$_POST[reg_no]', '$_POST[email]', '$_POST[password]')");
+    mysqli_query($conn,"INSERT INTO admin ( username, contact, email, password) VALUES ('$_POST[username]', '$_POST[contact]', '$_POST[email]', '$_POST[password]')");
     echo '<script>
     alert("Registration successful")
     window.location = "index.php"
@@ -44,7 +44,7 @@ alert("The username already exist.");
 if(isset($_POST['login_submit']))
     {
       $count=0;
-      $res=mysqli_query($conn,"SELECT * FROM `student` WHERE email='$_POST[login_email]' && password='$_POST[login_pswd]';") ; 
+      $res=mysqli_query($conn,"SELECT * FROM `admin` WHERE email='$_POST[login_email]' && password='$_POST[login_pswd]';") ; 
       /*
       res = {
         status : sucesss,
@@ -83,7 +83,7 @@ alert("The username and password doesn't match.");
       else
       {
         $_SESSION['username'] = $row['username'];
-        $_SESSION['reg_no'] = $row['reg_no'];
+        $_SESSION['contact'] = $row['contact'];
         $_SESSION['email'] = $row['email'];
         $_SESSION['password'] = $row['password'];
   ?>
@@ -119,7 +119,7 @@ window.location = "index.php"
             <form name="Sign-up" method="post">
                 <label for="chk" aria-hidden="true">Sign up</label>
                 <input type="text" name="username" placeholder="User name" required="">
-                <input type="text" name="reg_no" placeholder="Reg.NO." required="">
+                <input type="text" name="contact" placeholder="Contact" required="">
                 <input type="email" name="email" placeholder="Email" required="">
                 <input type="password" name="password" placeholder="Password" required="">
                 <button type="submit" name="sign_upsubmit">SignUp</button>

@@ -25,7 +25,7 @@
                 </button>
 
                 <div class="logo">
-                    <a href="index.htm">
+                    <a href="index.php">
                         <img src="assets/book-stack.svg" alt="logo">
                     </a>
                 </div>
@@ -33,20 +33,23 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="Admin.php">Home</a>
+                            <a class="nav-link" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="Book.php">Book</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="student.php">Student-Info</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="profile.php">Profile</a>
+                        </li>
                         <?php 
                             $length = count($_SESSION);
                                 if($length == 0){  // It will be cleared when user logouts.
-                                    echo '<li class="nav-item"> <a class="nav-link" href="signup.php">Sign-in</a></li>';
+                                    echo '<li class="nav-item"> <a class="nav-link" href="signup.php">Login</a></li>';
                                 }
                             ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="About.php">About</a>
-                        </li>
                         <li class="nav-item">
                             <div class="dropdown">
                                 <button class="btn btn-secondary bg-transparent border-0 dropdown-toggle hidden-arrow"

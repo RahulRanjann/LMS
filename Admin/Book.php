@@ -1,8 +1,7 @@
 <?php
   include "Connection.php";
 	$conn=Opencon();
-    session_start();
-?> 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -97,9 +96,10 @@
 </head>
 
 <body>
-    <header class="heading">
+    <?php include "nv.php" ?>
+    <!-- <header class="heading">
 
-        <!-- Navbar -->
+         Navbar 
         <div class="container">
 
             <nav class="navbar navbar-expand-lg ">
@@ -125,10 +125,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="Book.php">Book</a>
                             </li>
-                            <!-- <li class="nav-item">
-                                <a class="nav-link" href="signup.php">Sign-in | Sign-up</a>
-                            </li> -->
                             <li class="nav-item">
+                                <a class="nav-link" href="signup.php">Sign-in | Sign-up</a>
+                            </li>                             <li class="nav-item">
                                 <a class="nav-link" href="Admint.php">Admin</a>
                             </li>
                             <li class="nav-item">
@@ -155,10 +154,26 @@
                     </div>
             </nav>
         </div>
-    </header>
+    </header> -->
 
     <section class="p-3">
-
+        <div>
+            <a href="add.php"style=" text-decoration: none;">
+                <button style="background-color: #6db6b9e6; display: inline; " type="submit" name="add"
+                    class="btn btn-default">
+                    <span class="bi bi-bag-plus-fill">Add Book</span></button>
+            </a>
+            <a href="delete.php"style=" text-decoration: none;">
+                <button style="background-color: #6db6b9e6;  display: inline;" type="submit" name="delete"
+                    class="btn btn-default">
+                    <span class="bi bi-trash-fill">Delete Book</span></button>
+            </a>
+            <a href="delete.php"style=" text-decoration: none;">
+                <button style="background-color: #6db6b9e6;  display: inline;" type="submit" name="delete"
+                    class="btn btn-default">
+                    <span class="bi bi-trash-fill">Delete Book</span></button>
+            </a>
+        </div>
         <div class="srch">
             <form class="navbar-form" method="post" name="form1">
 
