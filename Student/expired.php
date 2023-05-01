@@ -1,7 +1,6 @@
 <?php
   include "connection.php";
   include "nv.php";
-  $conn=Opencon();
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,8 +23,7 @@
 </head>
 
 <body>
-&nbsp;
-&nbsp;
+
     <div style>
 
         <a href="Book.php" style=" text-decoration: none;">
@@ -53,14 +51,12 @@
 
     </div>
     <div>
-    &nbsp;
-    &nbsp;
 
 
         <?php
-	if(isset($_SESSION['username']))
+	if(isset($_SESSION['login_user']))
 		{
-			$q=mysqli_query($conn,"SELECT * from issue_book where username='$_SESSION[username]' and approve='' ;");
+			$q=mysqli_query($conn,"SELECT * from issue_book where username='$_SESSION[login_user]' and approve='' ;");
 
 			if(mysqli_num_rows($q)==0)
 			{
@@ -82,7 +78,7 @@
 			while($row=mysqli_fetch_assoc($q))
 			{
 				echo "<tr>";
-				echo "<td>"; echo $row['b_id']; echo "</td>";
+				echo "<td>"; echo $row['bid']; echo "</td>";
 				echo "<td>"; echo $row['approve']; echo "</td>";
 				echo "<td>"; echo $row['issue']; echo "</td>";
 				echo "<td>"; echo $row['return']; echo "</td>";

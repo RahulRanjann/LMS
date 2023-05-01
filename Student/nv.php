@@ -51,6 +51,9 @@
                                 <a class="nav-link" href="About.php">About</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="request.php">Issue_Info</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="profile.php">profile</a>
                             </li>
                             <li class="nav-item">

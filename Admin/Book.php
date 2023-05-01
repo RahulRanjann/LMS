@@ -97,64 +97,6 @@
 
 <body>
     <?php include "nv.php" ?>
-    <!-- <header class="heading">
-
-         Navbar 
-        <div class="container">
-
-            <nav class="navbar navbar-expand-lg ">
-                <div class="container-fluid">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="logo">
-                        <a href="index.htm">
-                            <img src="assets/book-stack.svg" alt="logo">
-                        </a>
-                    </div>
-
-                    <a class="navbar-brand" href="#">Library Manegement System</a>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.php">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="Book.php">Book</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="signup.php">Sign-in | Sign-up</a>
-                            </li>                             <li class="nav-item">
-                                <a class="nav-link" href="Admint.php">Admin</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="About.php">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <div class="dropdown">
-                                    <button
-                                        class="btn btn-secondary bg-transparent border-0 dropdown-toggle hidden-arrow"
-                                        type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        <i class="bi bi-person-circle"></i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">User Name</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <hr class="m-2">
-                                        <button class="dropdown-item"><i class="bi bi-person-circle">
-                                            </i> <span class="logout px-3">Logout</span></button>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-            </nav>
-        </div>
-    </header> -->
 
     <section class="p-3">
         <div>
