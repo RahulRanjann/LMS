@@ -1,7 +1,7 @@
 <?php
   include "Connection.php";
 	$conn=Opencon();
-?> 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,46 +27,7 @@
 
     }
 
-    body {
-        font-family: "Lato", sans-serif;
-        transition: background-color .5s;
-    }
-
-    .sidenav {
-        height: 100%;
-        margin-top: 50px;
-        width: 0;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        background-color: #222;
-        overflow-x: hidden;
-        transition: 0.5s;
-        padding-top: 60px;
-    }
-
-    .sidenav a {
-        padding: 8px 8px 8px 32px;
-        text-decoration: none;
-        font-size: 25px;
-        color: #818181;
-        display: block;
-        transition: 0.3s;
-    }
-
-    .sidenav a:hover {
-        color: white;
-    }
-
-    .sidenav .closebtn {
-        position: absolute;
-        top: 0;
-        right: 25px;
-        font-size: 36px;
-        margin-left: 50px;
-    }
-
+   
     #main {
         transition: margin-left .5s;
         padding: 16px;
@@ -82,77 +43,12 @@
         }
     }
 
-    .img-circle {
-        margin-left: 20px;
-    }
-
-    .h:hover {
-        color: white;
-        width: 300px;
-        height: 50px;
-        background-color: #00544c;
-    }
     </style>
 </head>
 
 <body>
-<?php include "nv.php" ?>
-    <!-- <header class="heading">
-
-     
-        <div class="container">
-
-            <nav class="navbar navbar-expand-lg ">
-                <div class="container-fluid">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="logo">
-                        <a href="index.htm">
-                            <img src="assets/book-stack.svg" alt="logo">
-                        </a>
-                    </div>
-
-                    <a class="navbar-brand" href="#">Library Manegement System</a>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.php">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="Book.php">Book</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="signup.php">Sign-in | Sign-up</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="About.php">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <div class="dropdown">
-                                    <button
-                                        class="btn btn-secondary bg-transparent border-0 dropdown-toggle hidden-arrow"
-                                        type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        <i class="bi bi-person-circle"></i>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">User Name</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <hr class="m-2">
-                                        <button class="dropdown-item"><i class="bi bi-person-circle">
-                                            </i> <span class="logout px-3">Logout</span></button>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-            </nav>
-        </div>
-    </header> -->
+    <?php include "nv.php" ?>
+   
 
 
 
@@ -169,7 +65,8 @@
             </form>
         </div>
 
-        <!-- <div class="srch">
+        <div class="srch">
+            &nbsp;
             <form class="navbar-form" method="post" name="form1">
 
                 <input class="form-control" type="text" name="bid" placeholder="Enter Book ID" required="" required=""
@@ -178,7 +75,8 @@
                     class="btn btn-default">Request
                 </button>
             </form>
-        </div> -->
+        </div>
+
         <?php
     
 
@@ -202,6 +100,7 @@
                     echo "<th>"; echo "Status";  echo "</th>";
                     echo "<th>"; echo "Quantity";  echo "</th>";
                     echo "<th>"; echo "Department";  echo "</th>";
+                    echo "<th>"; echo "Department";  echo "</th>";
                 echo "</tr>";	
     
                 while($row=mysqli_fetch_assoc($q))
@@ -214,6 +113,7 @@
                     echo "<td>"; echo $row['status']; echo "</td>";
                     echo "<td>"; echo $row['quantity']; echo "</td>";
                     echo "<td>"; echo $row['department']; echo "</td>";
+
     
                     echo "</tr>";
                 }
@@ -250,7 +150,31 @@
         <td>' . $row['department']. '</td>
         </tr>';
     }
-    ?>
+
+    // issue book 
+		if(isset($_POST['submit1']))
+		{
+			if(isset($_SESSION['username']))
+			{
+				mysqli_query($conn,"INSERT INTO issue_book(username,b_id) Values('$_SESSION[username]', '$_POST[bid]');");
+				?>
+                <script type="text/javascript">
+                window.location = "request.php"
+                </script>
+                <?php
+			}
+			else
+			{
+				?>
+                <script type="text/javascript">
+                alert("You must login to Request a book");
+                </script>
+                <?php
+			}
+		}
+
+	?>
+
             </tbody>
         </table>
     </section>

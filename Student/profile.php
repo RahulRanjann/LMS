@@ -7,7 +7,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="assets/book-stack.svg" sizes="70x70">
@@ -39,13 +39,13 @@
 
  			if(isset($_POST['submit1']))
  			{
-        ?>
+ 				?>
         <script type="text/javascript">
         window.location = "edit.php"
         </script>
         <?php
  			}
- 				$q=mysqli_query($conn,"SELECT * FROM admin where username='$_SESSION[username]' ;");
+ 				$q=mysqli_query($conn,"SELECT * FROM student where username='$_SESSION[username]' ;");
                  $row = mysqli_fetch_assoc($q);
  			?>
         <h2 style="text-align: center; color: #000000;">My Profile</h2>
@@ -60,14 +60,14 @@
  				echo "<table class='table table-bordered'>";
 	 	
 	 				echo "<tr>";
-	 					echo "<td>";echo "<b> User Name: </b>";echo "</td>";
+	 					echo "<td>";echo "<b>Student Name: </b>";echo "</td>";
                         echo "<td>";echo $row['username'];echo "</td>";
 	 				echo "</tr>";
                   
                     
 	 				echo "<tr>";
-                        echo "<td>";echo "<b> Contact: </b>";echo "</td>";
-                        echo "<td>";echo $row['contact'];echo "</td>";
+                        echo "<td>";echo "<b> Reg.No.: </b>";echo "</td>";
+                        echo "<td>";echo $row['reg_no'];echo "</td>";
                     echo "</tr>";
 	 				
 	 				echo "<tr>";
@@ -95,6 +95,18 @@
             <a href="#">Privacy Policy</a>
         </div>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script src="./vendor/typed/typed.min.js"></script>
+    <script type="text/javascript" src="vanilla-tilt.js"></script>
 </body>
 
 </html>
