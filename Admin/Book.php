@@ -120,6 +120,11 @@
                     class="btn btn-default">
                     <span class="bi bi-layout-text-sidebar">Request Book</span></button>
             </a>
+            <a href="expire.php"style=" text-decoration: none;">
+                <button style="background-color: #6db6b9e6;  display: inline;" type="submit" name="request"
+                    class="btn btn-default">
+                    <span class="bi bi-exclamation-diamond">Expired Book</span></button>
+            </a>
         </div>
         <div class="srch">
             <form class="navbar-form" method="post" name="form1">
@@ -131,17 +136,6 @@
                 </button>
             </form>
         </div>
-
-        <!-- <div class="srch">
-            <form class="navbar-form" method="post" name="form1">
-
-                <input class="form-control" type="text" name="bid" placeholder="Enter Book ID" required="" required=""
-                    style="margin-right: 10px;">
-                <button style="background-color: #6db6b9e6;" type="submit" name="submit1"
-                    class="btn btn-default">Request
-                </button>
-            </form>
-        </div> -->
         <?php
     
 

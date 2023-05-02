@@ -38,7 +38,7 @@
             <form class="book" action="" method="post">
 
                 <input type="text" name="bid" class="form-control" placeholder="Book id" required=""><br>
-                <button style="text-align: center; hover: color=white; width= 300px; height: 50px; background-color: #5CA4FF;" class="btn btn-default" type="submit" name="submit">Delete</button>
+                <button style="text-align: center; hover: color=white; width: 300px; height: 50px; background-color: #5CA4FF;" class="btn btn-default" type="submit" name="submit">Delete</button>
             </form>
         </div>
         <?php

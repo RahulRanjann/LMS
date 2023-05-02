@@ -9,6 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="assets/book-stack.svg" sizes="70x70">
     <link rel="stylesheet" href="style.css">
@@ -20,7 +21,6 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
     <title>RequestBook</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
 
@@ -105,14 +105,26 @@
 
 	if(isset($_POST['submit']))
 	{
-		$_SESSION['username']=$_POST['username'];
-		$_SESSION['b_id']=$_POST['bid'];
+        //Querry for checking whethere username and book number are actully requested or matched or not
 
-		?>
-            <script type="text/javascript">
-            window.location = "approve.php"
-            </script>
+        //if matched and requested then go to next page ..
+        //else send message that "book you are looking for is not in requested mode"
+        $q = "SELECT * FROM issue_book WHERE username='" . $_POST['username'] . "' AND b_id='" . $_POST['bid'] . "' AND (approve='' OR approve='no')";
+        $res = mysqli_query($conn,$q);
+        if(mysqli_num_rows($res) > 0){
+            $row = mysqli_fetch_assoc($res);
+            
+            $_SESSION['request_username']=$row['username'];
+    		$_SESSION['request_book_id']=$row['b_id'];
+            ?>
+                <script type="text/javascript">
+                window.location = "approve.php"
+                </script>
             <?php
+          
+        }else{
+            echo "alert('No Data Found')" ;   
+        }
 	}
 
 	?>

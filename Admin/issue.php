@@ -24,6 +24,74 @@
     </head>
     <body>
         
+    <div id="">
+  <div class="">
+    <h3 style="text-align: center;">Information of Borrowed Books</h3><br>
+    <?php
+    $c=0;
+
+      if(isset($_SESSION['username']))
+      {
+        $sql="SELECT student.username,reg_no,books.b_id,b_name,authors,edition,issue,issue_book.d_return FROM student inner join issue_book ON student.username=issue_book.username inner join books ON issue_book.b_id=books.b_id WHERE issue_book.approve ='yes' ORDER BY issue_book.d_return ASC";
+        
+        $res=mysqli_query($conn,$sql);
+        
+        
+        echo "<table class='table table-bordered' style='width:100%;' >";
+        //Table header
+
+        echo "<thead style='background-color: #6db6b9e6;'>";
+        echo "<tr style='background-color: #6db6b9e6;'>";
+        echo "<th>"; echo "Username";  echo "</th>";
+        echo "<th>"; echo "Reg.No.";  echo "</th>";
+        echo "<th>"; echo "B_ID";  echo "</th>";
+        echo "<th>"; echo "Book Name";  echo "</th>";
+        echo "<th>"; echo "Authors Name";  echo "</th>";
+        echo "<th>"; echo "Edition";  echo "</th>";
+        echo "<th>"; echo "Issue Date";  echo "</th>";
+        echo "<th>"; echo "Return Date";  echo "</th>";
+
+      echo "</tr>"; 
+      echo "</thead>";
+      echo "<tbody>";
+      while($row=mysqli_fetch_assoc($res))
+      {
+        $d=date("d-m-y");
+        if($d > $row['d_return'])
+        {
+          $count=$count+1;
+          $var='<p style="color:yellow; background-color:red;">EXPIRED</p>';
+
+          mysqli_query($conn,"UPDATE issue_book SET approve='$var' where return='$row[return]' and approve='Yes' limit $count;");
+          
+          echo $d."</br>";
+        }
+
+        echo "<tr>";
+          echo "<td>"; echo $row['username']; echo "</td>";
+          echo "<td>"; echo $row['reg_no']; echo "</td>";
+          echo "<td>"; echo $row['b_id']; echo "</td>";
+          echo "<td>"; echo $row['b_name']; echo "</td>";
+          echo "<td>"; echo $row['authors']; echo "</td>";
+          echo "<td>"; echo $row['edition']; echo "</td>";
+          echo "<td>"; echo $row['issue']; echo "</td>";
+          echo "<td>"; echo $row['d_return']; echo "</td>";
+        echo "</tr>";
+      }
+      echo "</tbody>";
+    echo "</table>";
+  
+       
+      }
+      else
+      {
+        ?>
+          <h3 style="text-align: center;">Login to see information of Borrowed Books</h3>
+        <?php
+      }
+    ?>
+  </div>
+</div>
 
     
     <footer class=" text-light py-3">
